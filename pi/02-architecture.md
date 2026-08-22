@@ -17,7 +17,7 @@ graph TD
     subgraph L2["运行时 pi-agent-core"]
         F[Agent 有状态封装]
         G[agent-loop 无状态循环]
-        H[AgentHarness durable harness<br/>(lane/records, 脚手架)]
+        H["AgentHarness durable harness<br/>(lane/records, 脚手架)"]
     end
 
     subgraph L1["模型层 pi-ai"]

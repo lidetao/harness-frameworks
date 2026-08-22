@@ -13,7 +13,7 @@ sequenceDiagram
     participant L as Agent循环
     participant M as Models集合
     participant P as Provider
-    participant A as API实现(如anthropic-messages)
+    participant A as "API实现(如anthropic-messages)"
     participant U as 上游API
 
     L->>M: streamSimple(model, context, options)

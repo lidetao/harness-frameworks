@@ -69,7 +69,7 @@ graph TD
     subgraph 运行时 agent-core
         AGENT[Agent: 有状态封装]
         LOOP[agent-loop: 双嵌套循环]
-        HARNESS[AgentHarness: 新一代durable harness API<br/>(lane/session/records, 脚手架中)]
+        HARNESS["AgentHarness: 新一代durable harness API<br/>(lane/session/records, 脚手架中)"]
         SESSION2[Session/SessionRepo: v4 JSONL/memory/SQLite]
     end
 

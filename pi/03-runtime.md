@@ -10,9 +10,9 @@ sequenceDiagram
     participant RT as ModelRuntime
     participant RL as ResourceLoader
     participant S as AgentSession
-    participant A as Agent(agent-core)
+    participant A as "Agent(agent-core)"
     participant P as pi-ai Provider
-    participant T as 工具(read/bash/edit/write)
+    participant T as "工具(read/bash/edit/write)"
 
     U->>CLI: pi "请修复 xxx"
     CLI->>CLI: 解析参数 → 决定模式(interactive/print/rpc)
@@ -53,14 +53,14 @@ sequenceDiagram
 
 ```mermaid
 flowchart TD
-    subgraph 高层 Agent(有状态)
+    subgraph 高层["Agent(有状态)"]
         ST[state: systemPrompt/model/thinkingLevel/tools/messages]
         Q[steeringQueue / followUpQueue]
         AB[AbortController]
         EV[事件订阅 listeners]
     end
 
-    subgraph 低层 agent-loop(无状态)
+    subgraph 低层["agent-loop(无状态)"]
         LOOP[runLoop 双嵌套循环]
         STREAM[streamAssistantResponse]
         EXEC[executeToolCalls]
@@ -169,10 +169,10 @@ AgentSession 扩展事件（`AgentSessionEvent`）：`agent_settled`、`queue_up
 
 ```mermaid
 sequenceDiagram
-    participant A as Agent(agent-core)
+    participant A as "Agent(agent-core)"
     participant S as AgentSession
     participant E as ExtensionRunner
-    participant UI as 模式层(interactive/rpc)
+    participant UI as "模式层(interactive/rpc)"
     participant SM as SessionManager
 
     A->>S: message_end

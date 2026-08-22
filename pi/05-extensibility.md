@@ -111,7 +111,7 @@ RPC 命令面（`packages/coding-agent/src/modes/rpc/rpc-types.ts`，远比"prom
 
 ```mermaid
 sequenceDiagram
-    participant H as 宿主应用(非Node)
+    participant H as "宿主应用(非Node)"
     participant PI as pi --mode rpc
     participant S as AgentSession
     participant A as Agent
