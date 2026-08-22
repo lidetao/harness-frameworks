@@ -12,9 +12,7 @@
 | [04-session.md](./04-session.md) | 会话持久化（树形 JSONL）、分支/fork、压缩、自动重试 |
 | [05-extensibility.md](./05-extensibility.md) | 扩展系统、skills/模板/主题/包、四种运行模式 |
 | [06-ai-provider.md](./06-ai-provider.md) | pi-ai 提供商抽象、认证、模型目录、流式选项 |
-| [08-eval-testing.md](./08-eval-testing.md) | 评估体系：pi-evals、vitest-evals 集成、conformance 测试、faux provider |
-| [09-security-permissions.md](./09-security-permissions.md) | 安全模型：项目信任门禁、沙箱、凭证、供应链 |
-| [07-research.md](./07-research.md) | 网上资料对照、生态、调研方向、参考链接 |
+| [07-security-eval.md](./07-security-eval.md) | 安全与权限（信任门禁/沙箱/凭证/供应链）+ 评估体系（pi-evals/conformance/faux provider）+ 网上资料附录 |
 
 ## 核心结论（TL;DR）
 
@@ -30,7 +28,7 @@
 ## 分析快照
 
 - 仓库：`../pi`（earendil-works/pi 镜像），分支 `main`，commit `c49906ec7`，`v0.84.2-84-gc49906ec7`。
-- 关键结论尽量附 `path:line`（相对 `../pi`）；网上资料结论单独标注在 [07-research.md](./07-research.md)，不作源码证据。
+- 关键结论尽量附 `path:line`（相对 `../pi`）；网上资料结论单独标注在 [07-security-eval.md](./07-security-eval.md) 附录 A，不作源码证据。
 
 ## 文档约定
 

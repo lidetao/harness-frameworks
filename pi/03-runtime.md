@@ -219,4 +219,4 @@ flowchart TD
 - **工具可重放性**：`HarnessTool = AgentTool & { replay?: "never" | "safe" }`（`agent-harness.ts:237`）——`replay: "safe"` 的工具（如只读）在恢复时可安全重放，`"never"`（如写文件）则必须跳过。
 - **hooks/events**：`before_run`/`before_resume`/`before_run_end`/`transform_context`/`before_request`/`before_payload`/`after_response`/`before_tool`/`after_tool`/`before_compaction`/`before_navigation`（`agent-harness.ts:198` HookName）；`drive: "automatic" | "manual"` 决定是否由内部推进，manual 下宿主用 `peekAction`/`executeAction` 逐步驱动。
 - **当前状态**：`AgentHarness` 构造时可用，但 `prompt`/`skill`/`compact`/`navigateTree` 等方法统一抛 `HarnessNotImplemented`（`agent-harness.ts:355` 的 `unavailable`）；`createCodingAgentHarness`（`packages/coding-agent/src/server/create-harness.ts`）已把 coding-agent 工具与系统提示词接好，等待运行时补齐。
-- **测试先行**：reducer、compaction、branch-summarization、session 后端均有专项测试，SQLite 后端跑同一套 conformance（详见 [08-eval-testing.md](./08-eval-testing.md)）。
+- **测试先行**：reducer、compaction、branch-summarization、session 后端均有专项测试，SQLite 后端跑同一套 conformance（详见 [07-security-eval.md](./07-security-eval.md)）。

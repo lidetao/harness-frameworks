@@ -36,10 +36,10 @@ PI 的默认工具面只有 4 个：
 
 PI **没有逐工具权限系统**，默认以启动用户的权限运行（README "Permissions & Containerization" 原文）。但并非零防护：
 
-- **项目信任门禁**：项目含 `.pi/settings.json`、`.pi/extensions`、`.pi/skills`、`.pi/prompts`、`.pi/themes`、`SYSTEM.md`、`APPEND_SYSTEM.md` 等资源时，启动会弹出 "Trust project folder?" 选择（信任 / 信任父目录 / 仅本次 / 不信任），信任后才加载这些资源、安装项目包并执行项目扩展（`packages/coding-agent/src/core/trust-manager.ts:30`、`project-trust.ts:46`；详见 [09-security-permissions.md](./09-security-permissions.md)）。
+- **项目信任门禁**：项目含 `.pi/settings.json`、`.pi/extensions`、`.pi/skills`、`.pi/prompts`、`.pi/themes`、`SYSTEM.md`、`APPEND_SYSTEM.md` 等资源时，启动会弹出 "Trust project folder?" 选择（信任 / 信任父目录 / 仅本次 / 不信任），信任后才加载这些资源、安装项目包并执行项目扩展（`packages/coding-agent/src/core/trust-manager.ts:30`、`project-trust.ts:46`；详见 [07-security-eval.md](./07-security-eval.md)）。
 - **bash 输出卫生**：输出剥离 ANSI、清洗二进制垃圾、超限截断并落盘完整日志（`packages/coding-agent/src/core/bash-executor.ts:19`）。
 - **沙箱是扩展路径**：官方文档建议容器化（Gondolin 扩展 / Docker / OpenShell），另有 `examples/extensions/sandbox` 演示用 `@anthropic-ai/sandbox-runtime` 在 OS 层（macOS sandbox-exec / Linux bubblewrap）限制 bash 的文件与网络访问。
-- **供应链硬化**：直接外部依赖精确锁版本、`package-lock.json` 为事实基准、发布时生成 `npm-shrinkwrap.json`、CI 定期跑 `npm audit`（详见 [09-security-permissions.md](./09-security-permissions.md)）。
+- **供应链硬化**：直接外部依赖精确锁版本、`package-lock.json` 为事实基准、发布时生成 `npm-shrinkwrap.json`、CI 定期跑 `npm audit`（详见 [07-security-eval.md](./07-security-eval.md)）。
 
 ### 两套会话体系
 

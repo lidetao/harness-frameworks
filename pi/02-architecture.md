@@ -118,4 +118,4 @@ graph TD
 2. **coding-agent 不绑定终端**：`AgentSession` 与 UI 解耦，interactive/RPC/print/json 模式共用同一会话对象，只是各自实现 I/O。
 3. **会话存储可插拔（新体系）**：harness 层定义 `SessionRepo` 契约（`packages/agent/src/harness/session/types.ts`），JSONL v4、memory、SQLite 后端都实现同一契约，由 `createSessionBackendConformance`（`packages/agent/src/harness/session/testing/conformance.ts`）做一致性测试。
 4. **扩展不绑定内部实现**：扩展只接触 `ExtensionAPI` 与事件，runner 负责把真实实现注入（两阶段设计见 [05-extensibility.md](./05-extensibility.md)）。
-5. **评估走真实产品栈**：`pi-evals` 的 harness 直接适配 coding-agent `AgentSession`（`packages/evals/src/pi-harness.ts`），并非基于 agent-core 的 `AgentHarness` 脚手架；详见 [08-eval-testing.md](./08-eval-testing.md)。
+5. **评估走真实产品栈**：`pi-evals` 的 harness 直接适配 coding-agent `AgentSession`（`packages/evals/src/pi-harness.ts`），并非基于 agent-core 的 `AgentHarness` 脚手架；详见 [07-security-eval.md](./07-security-eval.md)。

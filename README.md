@@ -6,7 +6,7 @@
 
 | 项目 | 定位 | 快照 | 文档 |
 |---|---|---|---|
-| [pi](./pi/README.md) | 最小核心 + 强扩展的编码 agent 框架（TypeScript） | main `c49906ec7` / 0.84.2 | 01 核心功能 · 02 架构 · 03 运行时 · 04 会话 · 05 扩展 · 06 Provider · 07 调研 · 08 评估 · 09 安全 |
+| [pi](./pi/README.md) | 最小核心 + 强扩展的编码 agent 框架（TypeScript） | main `c49906ec7` / 0.84.2 | 01 核心功能 · 02 架构 · 03 运行时 · 04 会话 · 05 扩展 · 06 Provider · 07 安全与评估（含网上资料附录） |
 | [codex](./codex/README.md) | OpenAI 的单厂商产品化编码 agent（Rust） | main `4f39251a01` | 01 核心功能 · 02 架构 · 03 运行时 · 04 会话 · 05 扩展 · 06 Provider · 07 安全与评估 |
 | [deepseek-harness](./deepseek-harness/README.md) | 一切皆插件的 agent harness 组合平台（Cordis/TypeScript） | master `b150a551b8` / 0.1.1-rc.2 | 01 核心功能 · 02 架构 · 03 运行时 · 04 会话 · 05 扩展 · 06 Provider · 07 安全与评估 |
 | [三方对比](./comparisons/pi-vs-codex-vs-dsh.md) | pi vs Codex CLI vs dsh | — | 维度矩阵 · 关键差异 · 选型建议 |
@@ -26,7 +26,7 @@
 ## 文档约定
 
 - 代码路径均相对各源码仓库根；Mermaid 图在 GitHub 上直接渲染。
-- 网上资料（star 数、生态等）单独标注在 `07-research.md`（pi）等文件中，不作为源码证据。
+- 网上资料（star 数、生态等）单独标注在各项目文档的附录中（如 pi 的 `07-security-eval.md` 附录 A），不作为源码证据。
 - 快照日期 2026-08-22；三个仓库均快速迭代，结论会随 commit 漂移。
 
 ## License

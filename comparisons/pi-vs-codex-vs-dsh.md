@@ -22,8 +22,8 @@
 | **steer/follow-up** | steer（当前 turn 后注入）+ followUp（停止前注入），all/one-at-a-time（pi 03） | pending input 队列 + mailbox（InterAgentCommunication）（codex 03） | inbox 三通道：followup/steer/inject，next-turn/next-step 边界（dsh 03 §3.2） |
 | **工具系统** | 4 默认工具 + 可选 grep/find/ls；prepare→execute→finalize；默认并行（pi 03 §3.3） | 注册表 + 并行 in-flight + 审批/沙箱包裹（codex 03 §3.2-3.4） | 注册表 + 调度器 prepare→dispatch→finalize/finish；并行池上限 10 + 独占屏障（dsh 03 §3.3） |
 | **工具 schema** | typebox JSON Schema + prepareArguments 兼容 | JSON Schema + 动态工具 + code-mode 命名空间（codex 05） | JSON Schema/TS/Python 三语生成（dsh 01 §1.3） |
-| **权限** | 无逐工具权限；项目信任门禁 + bash 输出清洗（pi 09） | AskForApproval 四态 + exec-policy 规则 + Guardian（codex 07 §7.1） | SandboxMode 三档 + ask 审批 + escalation（dsh 07 §7.1） |
-| **沙箱** | 扩展路径（Gondolin/Docker/OpenShell/示例扩展）（pi 09 §9.4） | 内置 bwrap / Windows sandbox + exec-server（codex 07 §7.2） | 内置 sandbox-local（bwrap/sandbox-exec/ACL）+ e2b 远程（dsh 07 §7.1） |
+| **权限** | 无逐工具权限；项目信任门禁 + bash 输出清洗（pi 07 §7.1-7.2） | AskForApproval 四态 + exec-policy 规则 + Guardian（codex 07 §7.1） | SandboxMode 三档 + ask 审批 + escalation（dsh 07 §7.1） |
+| **沙箱** | 扩展路径（Gondolin/Docker/OpenShell/示例扩展）（pi 07 §7.4） | 内置 bwrap / Windows sandbox + exec-server（codex 07 §7.2） | 内置 sandbox-local（bwrap/sandbox-exec/ACL）+ e2b 远程（dsh 07 §7.1） |
 | **Provider 抽象** | Provider/Models 接口 + 45 工厂（pi 06 §6.2） | ModelProvider trait + 内置 OpenAI/ChatGPT/lmstudio/ollama/bedrock（codex 06 §6.2） | LlmAdapter 注册表 + pi-ai 孪生（dsh 06 §6.1-6.2） |
 | **认证** | auth.json / OAuth（设备码/PKCE）/ env（pi 06 §6.3） | keyring + ChatGPT 账号登录（codex 06 §6.2） | 凭证引用 env/file/project/user + 每请求解析（dsh 06 §6.2） |
 | **上下文工程** | buildSystemPrompt 动态组装 + skills 渐进披露（pi 01/04） | clone_history().for_prompt + skills/plugins 注入 + turn diff（codex 04 §4.3） | PromptSection/PromptContext 有序组装 + system-prompt/assemble 瀑布（dsh 04 §4.4） |
@@ -78,7 +78,7 @@
 
 ### 分析文档
 
-- PI：[analysis-docs/pi/README.md](../pi/README.md)（含 01–09）
+- PI：[analysis-docs/pi/README.md](../pi/README.md)（含 01–07）
 - Codex：[analysis-docs/codex/README.md](../codex/README.md)（含 01–07）
 - dsh：[analysis-docs/deepseek-harness/README.md](../deepseek-harness/README.md)（含 01–07）
 
@@ -93,5 +93,5 @@
 ### 注意事项
 
 - 三个仓库均处于快速迭代：dsh 明确 developer preview，codex 快照为开发主线；对比结论会随 commit 漂移，引用时以各自 README 快照为准。
-- 部分"特性"是宣传 vs 源码差异：例如 PI 的"系统提示词 ~1000 token"仅部分验证（pi 07 §7.1）；codex 的 star/社区数据未在源码验证；dsh 的"无特权核心"已在源码证实（循环即插件）。
+- 部分"特性"是宣传 vs 源码差异：例如 PI 的"系统提示词 ~1000 token"仅部分验证（pi 07-security-eval.md 附录 A）；codex 的 star/社区数据未在源码验证；dsh 的"无特权核心"已在源码证实（循环即插件）。
 - 工具数、事件数、provider 数均为快照实测（PI 4+3 工具/34 事件/45 工厂；codex 工具在 tools crate；dsh 默认工具集在 base patch），对比时勿跨版本混用。
